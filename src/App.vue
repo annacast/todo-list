@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <List />
+    <List :tasks="tasks" />
   </div>
 </template>
 
@@ -12,6 +12,11 @@
     name: 'app',
     components: {
       List
+    },
+    data: () => {
+      return {
+        tasks: [],
+      };
     }
   }
 </script>

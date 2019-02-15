@@ -34,37 +34,40 @@
     </div>
 
     <transition-group name="fade" tag="ul" class="tasks__list no-bullet">
-      <task-item
-        v-for="(item, index) in list"
-        @remove="removeItem(index)"
-        @complete="completeItem(item)"
-        :item="item"
-        :key="item"
-      ></task-item>
+      <Task
+        v-for="(task, idx) in tasks"
+        @remove="removeItem(idx)"
+        @complete="completeItem(task)"
+        :task="task"
+        :key="idx"
+      ></Task>
     </transition-group>
   </section>
 </template>
 
 <script>
-  import Item from './Item.vue';
+  import Task from './Item.vue';
   export default {
     name: 'List',
+    template: '#list',
+    props: {
+      tasks: { default: [] }
+    },
     data () {
       return {
-        list: [{ text: 'Test item' }],
         task: ''
       }
     },
     computed: {
       incomplete() {
-        return this.list.filter(this.pending).length;
+        return this.tasks.filter(this.pending).length;
       }
     },
-    components: { Item },
+    components: { Task },
     methods: {
       addItem() {
         if (this.task) {
-          this.list.push({
+          this.tasks.push({
             text: this.task,
             completed: false
           });
@@ -72,16 +75,16 @@
         }
       },
       removeItem(index) {
-        this.list.splice(index, 1)
+        this.tasks.splice(index, 1)
       },
       completeItem(item) {
         item.completed = !item.completed
       },
       clearCompleted() {
-        this.list = this.lists.filter(this.pending);
+        this.tasks = this.tasks.filter(this.pending);
       },
       clearAll() {
-        this.lists = [];
+        this.tasks = [];
       },
       pending(item) {
         return !this.isCompleted(item);
