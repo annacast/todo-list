@@ -1,6 +1,7 @@
-body, * {
+body {
   font-family: 'Nunito', sans-serif;
   outline: 0;
+  background: #F0E5D6;
 }
 
 #app {
@@ -54,8 +55,24 @@ small {
 
 .list-group-item {
   padding: .3rem 1rem;
+  border: none;
+  border-bottom: solid 1px #7C96A8;
+  margin-bottom: 0;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .fa .fa-times {
   color: #01395C;
+}
+
+.display-items-container {
+  overflow: auto;
+  height: 55vh;
+  border: solid 1px #01395C;
+  border-radius: 5px;
+  padding-left: 15px;
 }

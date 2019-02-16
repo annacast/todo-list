@@ -44,15 +44,17 @@
       </button>
     </div>
 
-    <transition-group name="fade" tag="ul" class="list-group">
-      <Task
-        v-for="(task, idx) in tasks"
-        @remove="removeItem(idx)"
-        @complete="completeItem(task)"
-        :task="task"
-        :key="idx"
-      ></Task>
-    </transition-group>
+    <div class="display-items-container">
+      <transition-group name="fade" tag="ul" class="list-group">
+        <Task
+          v-for="(task, idx) in tasks"
+          @remove="removeItem(idx)"
+          @complete="completeItem(task)"
+          :task="task"
+          :key="idx"
+        ></Task>
+      </transition-group>
+    </div>
   </section>
 </template>
 
