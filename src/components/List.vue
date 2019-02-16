@@ -6,30 +6,41 @@
         <small v-if="incomplete">({{ incomplete }})</small>
       </transition>
     </h1>
-    <div class="tasks__new input-group">
-      <input
-        type="text"
-        class="input-group-field"
-        v-model="task"
-        @keyup.enter="addItem"
-        placeholder="New task"
-      >
-      <span class="input-group-button">
-        <button @click="addItem" class="button">
-          <i class="fa fa-plus"></i> Add
+    <div class="form-row align-items-center">
+      <div class="col-10">
+        <input
+          type="text"
+          class="form-control mb-2"
+          v-model="task"
+          @keyup.enter="addItem"
+          placeholder="New task"
+        >
+      </div>
+      <div class="col-2">
+        <button
+          type="button" 
+          class="btn btn-primary btn-block mb-2"
+          @click="addItem"
+        >
+          <i class="fa fa-plus" />&nbsp;&nbsp;Add
         </button>
-      </span>
+      </div>
     </div>
 
-    <div class="tasks__clear button-group pull-right">
+    <div class="form-row">
       <button
-        class="button warning small"
+        type="button"
+        class="btn btn-outline-warning col-auto offset-md-8"
         @click="clearCompleted"
       >
-        <i class="fa fa-check"></i> Clear Completed
+        <i class="fa fa-check" /> Clear Completed
       </button>
-      <button class="button alert small" @click="clearAll">
-        <i class="fa fa-trash"></i> Clear All
+      <button
+        type="button"
+        class="btn btn-danger col-md-2"
+        @click="clearAll"
+      >
+        <i class="fa fa-trash" /> Clear All
       </button>
     </div>
 
