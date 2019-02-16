@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <List :tasks="tasks" />
+    <List :taskList="tasks" />
   </div>
 </template>
 

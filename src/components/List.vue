@@ -64,11 +64,12 @@
     name: 'List',
     template: '#list',
     props: {
-      tasks: { default: [] }
+      taskList: { default: [] }
     },
     data () {
       return {
-        task: ''
+        tasks: this.taskList,
+        task: '',
       }
     },
     computed: {
