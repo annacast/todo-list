@@ -1,9 +1,18 @@
 <template id="item">
-  <li class="item">
-    <button :class="className" @click.self="$emit('complete')">
+  <li class="list-group-item list-group-item-action">
+    <button
+      type="button"
+      class="btn btn-list-item col-md-11"
+      :class="className"
+      @click.self="$emit('complete')"
+    >
       {{ task.text }}
     </button>
-    <button class="pull-right" @click="$emit('remove')">
+    <button
+      type="button"
+      class="btn btn-small pull-right"
+      @click="$emit('remove')"
+    >
       <i class="fa fa-times"></i>
     </button>
   </li>
@@ -20,9 +29,9 @@
     },
     computed: {
       className() {
-        let classes = ['tasks__item__toggle'];
+        let classes = [''];
         if (this.task.completed) {
-          classes.push('tasks__item__toggle--completed');
+          classes.push('disabled');
         }
         return classes.join(' ');
       }

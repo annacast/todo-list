@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row mb-4">
       <button
         type="button"
         class="btn btn-outline-warning col-auto offset-md-8"
@@ -44,7 +44,7 @@
       </button>
     </div>
 
-    <transition-group name="fade" tag="ul" class="tasks__list no-bullet">
+    <transition-group name="fade" tag="ul" class="list-group">
       <Task
         v-for="(task, idx) in tasks"
         @remove="removeItem(idx)"

@@ -1,5 +1,6 @@
 body, * {
   font-family: 'Nunito', sans-serif;
+  outline: 0;
 }
 
 #app {
@@ -29,6 +30,32 @@ small {
   min-width: 170px;
 }
 
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn.disabled {
+  text-decoration: line-through;
+}
+
+.btn-small {
+  min-width: 50px;
+  width: 50px;
+}
+
 .btn:first-of-type {
   margin-right: 5px;
+}
+
+.btn-list-item {
+  text-align: left;
+}
+
+.list-group-item {
+  padding: .3rem 1rem;
+}
+
+.fa .fa-times {
+  color: #01395C;
 }
