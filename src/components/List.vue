@@ -51,7 +51,7 @@
           @remove="removeItem(idx)"
           @complete="completeItem(task)"
           :task="task"
-          :key="idx"
+          :key="idx + 0"
         ></Task>
       </transition-group>
     </div>
