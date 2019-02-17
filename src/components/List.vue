@@ -108,6 +108,7 @@
       },
       completeItem(item) {
         item.completed = !item.completed
+        taskStorage.save(this.tasks)
       },
       clearCompleted() {
         this.tasks = this.tasks.filter(this.pending);
