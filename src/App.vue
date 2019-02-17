@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <List :taskList="tasks" />
+    <List />
   </div>
 </template>
 
@@ -12,11 +12,6 @@
     components: {
       List
     },
-    data: () => {
-      return {
-        tasks: [],
-      };
-    }
   }
 </script>
 

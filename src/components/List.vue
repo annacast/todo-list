@@ -60,16 +60,31 @@
 
 <script>
   import Task from './Item.vue';
+  const STORAGE_KEY = 'todo-list-vuejs'
+  const taskStorage = {
+    fetch: () => {
+      const tasks = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      return tasks;
+    },
+    save: (tasks) => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
+    }
+  }
+
   export default {
     name: 'List',
     template: '#list',
-    props: {
-      taskList: { default: [] }
-    },
     data () {
       return {
-        tasks: this.taskList,
+        tasks: taskStorage.fetch(),
         task: '',
+      }
+    },
+    watch: {
+      tasks: {
+        handler: (tasks) => {
+          taskStorage.save(tasks)
+        }
       }
     },
     computed: {
