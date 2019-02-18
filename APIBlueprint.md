@@ -49,7 +49,11 @@ Creates a new task
 
 **Query Parameters**
 
-+ Attributes (object)
+Name | Type    | Status   | Default
+---- | ------- | -------- | -------
+text | string  | required | *n/a*
+
++ Parameters
     + text: (string)
 
 **Returns**
@@ -115,11 +119,17 @@ id   | integer | required | *n/a*
 
 **Returns**
 
-The null value, or a 404 Not Found error.
+The value (for client side verification), or a 404 Not Found error.
 
 + Request Success (application/json)
 
-+ Response 204
++ Response 200 (application/json; charset=utf-8)
+
+            {
+                "id": 1,
+                "text": "Paint the walls white",
+                "isComplete": true,
+            }
 
 + Request Failure: Not Found (application/json)
 
@@ -136,10 +146,6 @@ All todos will be deleted.
 
 **Returns**
 
-An empty array.
-
 + Request Success (application/json)
 
 + Response 200
-
-            []
